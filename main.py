@@ -3,14 +3,11 @@ import pandas as pd
 pd.set_option("expand_frame_repr", False)
 
 def get_single_ticker_data(symbol):
-    # """
-    #     单个交易对的ticker数据获取
-    # """
     ticker_url = "https://api.binance.com/api/v3/ticker/24hr?symbol={}".format(symbol)
     try:
         res_obj = requests.get(ticker_url, timeout=15)
     except Exception as e:
-        print("错误", e)
+        print('error', e)
         return None
 
     # json_obj = res_obj.json()
